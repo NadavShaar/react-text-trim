@@ -16,15 +16,15 @@ npm install --save react-text-trim
 
 ```jsx
 <TextTrim 
-  refId="TextTrim"
-  text="Lorem ipsum dolor sit amet, consecter adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
-  minLines={2}
-  maxLines={5}
-  showMoreLabel="Show More"
-  showLessLabel="Show Less"
-  delimiter="..."
-  fontSize={14}
-  lineHeight={16}
+    refId="TextTrim"
+    text="Lorem ipsum dolor sit amet, consecter adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+    minLines={2}
+    maxLines={5}
+    showMoreLabel="Show More"
+    showLessLabel="Show Less"
+    delimiter="..."
+    fontSize={14}
+    lineHeight={16}
 />
 ```
 

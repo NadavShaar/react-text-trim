@@ -13,16 +13,18 @@ npm install --save react-text-trim
 ## Usage
 
 ```jsx
-import React, { Component } from 'react'
-
-import MyComponent from 'react-text-trim'
-import 'react-text-trim/dist/index.css'
-
-class Example extends Component {
-  render() {
-    return <MyComponent />
-  }
-}
+<TextTrim 
+  refId="TextTruncator"
+  text={text}
+  shouldRecalculate={shouldRecalculate}
+  numOfLinesToTruncate={numOfLinesToTruncate}
+  maxLines={maxLines}
+  showMoreLabel={showMoreLabel}
+  showLessLabel={showLessLabel}
+  delimiter={delimiter}
+  fontSize={fontSize}
+  lineHeight={lineHeight}
+/>
 ```
 
 ## License

@@ -6,15 +6,15 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      shouldRecalculate: false, 
-      numOfLinesToTruncate: 2, 
+      recalculating: false, 
+      minLines: 2, 
       maxLines: 0,
       showMoreLabel: 'Show More',
       showLessLabel: 'Show Less',
       delimiter: '...',
       fontSize: 14,
       lineHeight: 16,
-      text: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      text: "Lorem ipsum dolor sit amet, consecter adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     };
     this.sidebarRef = React.createRef();
   }
@@ -23,7 +23,9 @@ class App extends Component {
     var _this = this;
     var observer = new MutationObserver(function(mutations) {
       mutations.forEach(function(mutationRecord) {
-        _this.update();
+        _this.setState({
+          recalculating: true
+        });
       });    
     });
 
@@ -31,15 +33,8 @@ class App extends Component {
     observer.observe(target, { attributes : true, attributeFilter : ['style'] });
   }
 
-  update = () => {
-    let { shouldRecalculate } = this.state;
-    this.setState({
-      shouldRecalculate: !shouldRecalculate
-    });
-  }
-
   render() {
-    let { shouldRecalculate, numOfLinesToTruncate, maxLines, showMoreLabel, showLessLabel, delimiter, fontSize, lineHeight, text } = this.state;
+    let { minLines, maxLines, showMoreLabel, showLessLabel, delimiter, fontSize, lineHeight, text } = this.state;
     return (
       <div style={{display: 'inline-flex', flexDirection: 'column', textAlign: 'left', padding: 20, borderRadius: 8, boxShadow: 'rgb(0 0 0 / 0.3) 1px 2px 3px 3px', backgroundColor: '#8d5185', backgroundImage: 'linear-gradient(315deg, #493f61 0%, #7892d8 74%)'}}>
         <div 
@@ -59,8 +54,7 @@ class App extends Component {
           <TextTrim 
             refId="TextTruncator"
             text={text}
-            shouldRecalculate={shouldRecalculate}
-            numOfLinesToTruncate={numOfLinesToTruncate}
+            minLines={minLines}
             maxLines={maxLines}
             showMoreLabel={showMoreLabel}
             showLessLabel={showLessLabel}
@@ -73,8 +67,8 @@ class App extends Component {
         <input name="fontSize" type="number" value={fontSize} onChange={e => this.setState({fontSize: e.target.value * 1})} />
         <label htmlFor="lineHeight">Line-height</label>
         <input name="lineHeight" type="number" value={lineHeight} onChange={e => this.setState({lineHeight: e.target.value * 1})} />
-        <label htmlFor="numOfLinesToTruncate">Number of lines to truncate</label>
-        <input name="numOfLinesToTruncate" type="number" value={numOfLinesToTruncate} onChange={e => this.setState({numOfLinesToTruncate: e.target.value * 1})} />
+        <label htmlFor="minLines">Min-lines</label>
+        <input name="minLines" type="number" value={minLines} onChange={e => this.setState({minLines: e.target.value * 1})} />
         <label htmlFor="maxLines">Max-lines (0 = no limit)</label>
         <input name="maxLines" type="number" value={maxLines} onChange={e => this.setState({maxLines: e.target.value * 1})} />
         <label htmlFor="showMoreLabel">Show more label</label>

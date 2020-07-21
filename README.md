@@ -4,6 +4,8 @@
 
 [![NPM](https://img.shields.io/npm/v/react-text-trim.svg)](https://www.npmjs.com/package/react-text-trim) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
+Live [here](https://nadavshaar.github.io/react-text-trim/)
+
 ## Install
 
 ```bash
@@ -14,16 +16,15 @@ npm install --save react-text-trim
 
 ```jsx
 <TextTrim 
-  refId="TextTruncator"
-  text={text}
-  shouldRecalculate={shouldRecalculate}
-  numOfLinesToTruncate={numOfLinesToTruncate}
-  maxLines={maxLines}
-  showMoreLabel={showMoreLabel}
-  showLessLabel={showLessLabel}
-  delimiter={delimiter}
-  fontSize={fontSize}
-  lineHeight={lineHeight}
+  refId="TextTrim"
+  text="Lorem ipsum dolor sit amet, consecter adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+  minLines={2}
+  maxLines={5}
+  showMoreLabel="Show More"
+  showLessLabel="Show Less"
+  delimiter="..."
+  fontSize={14}
+  lineHeight={16}
 />
 ```
 

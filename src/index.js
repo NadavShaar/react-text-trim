@@ -33,11 +33,8 @@ class TextTrim extends React.Component {
   }
 
   componentWillReceiveProps(newProps) {
-    // const { text, numOfLinesToTruncate, showMoreLabel } = this.props;
+    // const { text, minLines, showMoreLabel } = this.props;
     const { displayFullText } = this.state;
-    // recalculate the text truncation incase of a manual request using 
-    // the "shouldRecalculate" prop or if the text prop has been changed
-    // if(newProps.shouldRecalculate || (text !== newProps.text || newProps.numOfLinesToTruncate !== numOfLinesToTruncate || newProps.showMoreLabel !== showMoreLabel)) {
     if(newProps !== this.props) {
       setTimeout(() => {
         // updating the element's top padding to add to the max height when calculating number of rows in full text mode
@@ -58,7 +55,7 @@ class TextTrim extends React.Component {
   truncateText(showFullText) {
     const { 
       text, 
-      numOfLinesToTruncate, 
+      minLines, 
       showLessLabel,
       showMoreLabel, 
       delimiter,
@@ -96,9 +93,9 @@ class TextTrim extends React.Component {
       // adding the delimiter an extra space and the text of the button
       el.innerHTML = truncatedText + delimiter + ' ' + buttonText;
       // testing wether the current text is causing the element's height to exceed the number of 
-      // rows that should be displayed as determined by the "numOfLinesToTruncate" prop,
+      // rows that should be displayed as determined by the "minLines" prop,
       // when it does, that mean that the current word and the words after it should be truncated
-      if(el.clientHeight > (lineHeight * numOfLinesToTruncate)) {
+      if(el.clientHeight > (lineHeight * minLines)) {
         // trimming the extra space at the end, removing the current word and adding the delimiter with an extra space
         truncatedText = truncatedText.substring(0, truncatedText.lastIndexOf(' ')).trim() + delimiter + ' ';
         // updating the state with the result
@@ -118,7 +115,7 @@ class TextTrim extends React.Component {
   render(){
     const { 
         refId, 
-        numOfLinesToTruncate,
+        minLines,
         maxLines,
         showMoreLabel, 
         showLessLabel, 
@@ -129,7 +126,6 @@ class TextTrim extends React.Component {
         buttonStyle
     } = this.props;
 
-    console.log(numOfLinesToTruncate)
     const { 
         displayFullText, 
         resultText, 
@@ -148,7 +144,7 @@ class TextTrim extends React.Component {
                                                     // if "maxLines" was set to 0 (default) there will be no scroll
     const containerHiddenStyles =  displayFullText  ? { ...containerStyle, overflow: 'auto', maxHeight: maxLines ? (maxLines * lineHeight + (this.elementOffsetTop || 0) + (this.containerOffsetTop || 0)) : 'unset' }  
                                                     // styles to hide the overflowing text that is caused by a quick resizing of the container
-                                                    : { ...containerStyle, overflow: 'hidden', maxHeight: numOfLinesToTruncate ? (numOfLinesToTruncate * lineHeight + (this.elementOffsetHeight || 0) + (this.containerOffsetHeight || 0)) : 'unset' };
+                                                    : { ...containerStyle, overflow: 'hidden', maxHeight: minLines ? (minLines * lineHeight + (this.elementOffsetHeight || 0) + (this.containerOffsetHeight || 0)) : 'unset' };
     const textWrapperStyles = {lineHeight: `${lineHeight}px`, fontSize: fontSize, color: '#4d5f75', ...textWrapperStyle};
     const buttonStyles = {color: '#0288d1', textDecoration: 'underline', cursor: 'pointer', whiteSpace: 'nowrap', ...buttonStyle, fontSize: fontSize, lineHeight: `${lineHeight}px`};
     // ===============================================================================================
@@ -176,8 +172,7 @@ class TextTrim extends React.Component {
 TextTrim.propTypes = {
   refId: PropTypes.string.isRequired,
   text: PropTypes.string,
-  shouldRecalculate: PropTypes.boolean,
-  numOfLinesToTruncate: PropTypes.number,
+  minLines: PropTypes.number,
   maxLines: PropTypes.number,
   showMoreLabel: PropTypes.string,
   showLessLabel: PropTypes.string,
@@ -190,7 +185,7 @@ TextTrim.propTypes = {
 }
 
 TextTrim.defaultProps = {
-  numOfLinesToTruncate: 3,
+  minLines: 3,
   maxLines: 0,
   showMoreLabel: 'Show More',
   showLessLabel: 'Show Less',

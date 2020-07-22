@@ -25,6 +25,9 @@ npm install --save react-text-trim
     delimiter="..."
     fontSize={14}
     lineHeight={16}
+    containerStyle={{}}
+    textWrapperStyle={{}}
+    buttonStyle={{}}
 />
 ```
 

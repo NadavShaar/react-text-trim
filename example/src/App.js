@@ -14,7 +14,7 @@ class App extends Component {
       delimiter: '...',
       fontSize: 14,
       lineHeight: 16,
-      text: "Lorem ipsum dolor sit amet, consecter adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
+      text: "Lorem ipsum dolor sit amet, conse adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat."
     };
     this.sidebarRef = React.createRef();
   }
@@ -37,13 +37,14 @@ class App extends Component {
     let { minLines, maxLines, showMoreLabel, showLessLabel, delimiter, fontSize, lineHeight, text } = this.state;
     return (
       <div style={{display: 'inline-flex', flexDirection: 'column', textAlign: 'left', padding: 20, borderRadius: 8, boxShadow: 'rgb(0 0 0 / 0.3) 1px 2px 3px 3px', backgroundColor: '#8d5185', backgroundImage: 'linear-gradient(315deg, #493f61 0%, #7892d8 74%)'}}>
+        <span className="title">react-text-trim</span>
         <div 
           ref={this.sidebarRef} 
           style={{
           minHeight: 170,
           padding: 20,
           width: 240,
-          minWidth: 180,
+          minWidth: 240,
           resize: 'horizontal',
           overflow: 'auto',
           display: 'inline-block',
@@ -63,6 +64,7 @@ class App extends Component {
             lineHeight={lineHeight}
           />
         </div>
+        <span className="hint">Hint: the container is resizable.</span>
         <label htmlFor="fontSize">Font-size</label>
         <input name="fontSize" type="number" value={fontSize} onChange={e => this.setState({fontSize: e.target.value * 1})} />
         <label htmlFor="lineHeight">Line-height</label>

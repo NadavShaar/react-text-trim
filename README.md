@@ -5,7 +5,9 @@
 [![NPM](https://img.shields.io/npm/v/react-text-trim.svg)](https://www.npmjs.com/package/react-text-trim) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
 Live Demo [here](https://nadavshaar.github.io/react-text-trim/)
+
 ![trimmer](https://user-images.githubusercontent.com/8030614/95021813-008ec500-067c-11eb-81de-d1e71b650056.gif)
+
 
 ## Install
 

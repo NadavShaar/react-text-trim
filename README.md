@@ -53,4 +53,4 @@ npm install --save react-text-trim
 
 ## License
 
- © [NadavShaar](https://github.com/NadavShaar)
+ © [MIT](https://github.com/NadavShaar/react-text-trim/blob/master/LICENSE)

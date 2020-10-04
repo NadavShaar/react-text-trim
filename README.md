@@ -31,6 +31,23 @@ npm install --save react-text-trim
 />
 ```
 
+## Props
+
+| name | type | description | default value |
+|---|---|---|---|
+| refId* | string | unique id for the component | --- |
+| text | string | the text to trim | --- |
+| minLines | number | the number of lines to show when trimmed | 3 |
+| maxLines | number | the number of lines to display when text is not trimmed, if the text is longer it will be scrollable, to disable this prop and display the all text just pass 0 | 0 |
+| showMoreLabel | string | the label for the toggle element when text is trimmed | "Show More" |
+| showLessLabel | string | the label for the toggle element when text is not trimmed | "Show Less" |
+| delimiter | string | the suffix for the text | "..." |
+| fontSize | number | the font size of text (in pixels) | 13 |
+| lineHeight | number | the height of each line (in pixels) | 16 |
+| containerStyle | object | styles for the container element | --- |
+| textWrapperStyle | object | styles for the text wrapping container element | --- |
+| buttonStyle | object | styles for the toggle element | --- |
+
 ## License
 
  © [NadavShaar](https://github.com/NadavShaar)

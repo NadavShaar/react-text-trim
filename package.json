@@ -8,6 +8,7 @@
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.js",
+  "keywords": ["react", "text", "trim", "ellipsis", "truncate", "slice", "string", "customization"],
   "engines": {
     "node": ">=10"
   },

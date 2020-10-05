@@ -4,7 +4,7 @@
 
 [![NPM](https://img.shields.io/npm/v/react-text-trim.svg)](https://www.npmjs.com/package/react-text-trim) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
 
-Live Demo [here](https://nadavshaar.github.io/react-text-trim/)
+**Live [Demo](https://nadavshaar.github.io/react-text-trim/)**
 
 ![trimmer](https://user-images.githubusercontent.com/8030614/95021848-3b90f880-067c-11eb-9ced-f72de8c2430e.gif)
 
